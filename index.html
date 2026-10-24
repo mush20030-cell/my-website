@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الموقع الشخصي - معرض الإنجازات</title>
+  
+  <!-- خط Reem Kufi العصري والمميز -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.75);
+      --accent-color: #6366f1;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.2) 0px, transparent 50%);
+      font-family: 'Reem Kufi', sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* شريط تنقل علوي زجاجي للموقع */
+    header {
+      position: fixed;
+      top: 20px;
+      width: 90%;
+      max-width: 1000px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      padding: 14px 28px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    header .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #a855f7;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    header .status-tag {
+      font-size: 0.85rem;
+      background: rgba(99, 102, 241, 0.2);
+      color: #818cf8;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    /* كارت الموقع الرئيسي */
+    .portfolio-card {
+      margin-top: 80px;
+      width: 100%;
+      max-width: 950px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 28px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-side {
+      padding: 45px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .right-side {
+      border-left: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .profile-badge {
+      width: 65px;
+      height: 65px;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      background: linear-gradient(to right, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      color: #f1f5f9;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    li {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 1rem;
+      color: #e2e8f0;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    li:hover {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateX(-4px);
+    }
+
+    .nav-btn {
+      margin-top: 30px;
+      background: linear-gradient(135deg, var(--accent-color), #a855f7);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(99, 102, 241, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط الموقع الشخصي -->
+  <header>
+    <div class="logo">
+      <span>✨</span> موقعي الشخصي
+    </div>
+    <div class="status-tag">مُبرمجة ومطوّرة</div>
+  </header>
+
+  <!-- محتوى كارت المعرض -->
+  <div class="portfolio-card">
+    
+    <div class="section-side right-side">
+      <div>
+        <div class="profile-badge">💻</div>
+        <h1 id="page-title">مذكرات برمجة</h1>
+        <p id="page-content">أهلاً بكِ في مساحتي الخاصة! هنا أدون رحلتي وشغفي في عالم البرمجة، التقنية، وتصميم المواقع الحديثة ✨</p>
+      </div>
+    </div>
+
+    <div class="section-side left-side">
+      <div class="content-box">
+        <h3>🚀 الإنجازات والمهارات:</h3>
+        <ul id="skills-list">
+          <li><span>☕</span> برمجت أول كود بلغة Java</li>
+          <li><span>💻</span> صممت موقع شخصي بـ HTML & CSS</li>
+          <li><span>🌙</span> أضفت ميزة الوضع الليلي بـ JavaScript</li>
+          <li><span>🤖</span> أنشأت مقاطع فيديو بالذكاء الاصطناعي</li>
+        </ul>
+      </div>
+      
+      <button class="nav-btn" onclick="nextPage()">
+        <span>التالي</span> ◀
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentPage = 1;
+
+    function nextPage() {
+      const title = document.getElementById('page-title');
+      const content = document.getElementById('page-content');
+      const skillsList = document.getElementById('skills-list');
+
+      if (currentPage === 1) {
+        title.innerText = "أهدافي المستقبلية 🌟";
+        content.innerText = "أطمح لتعلم بناء تطبيقات واجهات متكاملة والتعمق في لغات البرمجة الحديثة الذكية!";
+        skillsList.innerHTML = `
+          <li><span>📖</span> تطوير هذا الموقع ليكون تفاعلياً أكثر</li>
+          <li><span>⚛️</span> تعلم إطارات العمل الحديثة مثل React</li>
+          <li><span>🚀</span> بناء تطبيق متكامل خاص بي</li>
+        `;
+        currentPage = 2;
+      } else {
+        title.innerText = "مذكرات برمجة";
+        content.innerText = "أهلاً بكِ في مساحتي الخاصة! هنا أدون رحلتي وشغفي في عالم البرمجة، التقنية، وتصميم المواقع الحديثة ✨";
+        skillsList.innerHTML = `
+          <li><span>☕</span> برمجت أول كود بلغة Java</li>
+          <li><span>💻</span> صممت موقع شخصي بـ HTML & CSS</li>
+          <li><span>🌙</span> أضفت ميزة الوضع الليلي بـ JavaScript</li>
+          <li><span>🤖</span> أنشأت مقاطع فيديو بالذكاء الاصطناعي</li>
+        `;
+        currentPage = 1;
+      }
+    }
+  </script>
+
+</body>
+</html>
